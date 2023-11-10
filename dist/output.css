@@ -568,37 +568,16 @@ video {
   }
 }
 
-.m-4 {
-  margin: 1rem;
-}
-
 .flex {
   display: flex;
-}
-
-.justify-start {
-  justify-content: flex-start;
 }
 
 .justify-center {
   justify-content: center;
 }
 
-.border {
-  border-width: 1px;
-}
-
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
 .text-center {
   text-align: center;
-}
-
-.font-extrabold {
-  font-weight: 800;
 }
 
 .font-bold {

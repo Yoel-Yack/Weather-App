@@ -10,7 +10,10 @@
   <div id="Container" class="mx-40">
     <section id="Top Section" class="flex border border-black flex-col">
       <div id="Text">
-        <div class="text-center">Manchester</div>
+        <div id="userLocation" class="text-center">Get Weather For Your Location Below</div>
+        <div class="flex justify-center align-middle">
+          <button id="share" onclick="myLocation()" class="bg-slate-200 rounded-md p-2 shadow-xl border-solid border-black text-center hover:bg-slate-300">Share Location</button>
+        </div>
         <div class="text-center">17C</div>
         <div class="text-center">Snow</div>
         <div class="text-center">L: 7C | H: 19C</div>
@@ -65,7 +68,7 @@
 
     <section id="Bottom Section">
 
-      <div id="Bottom-Filter" class="text-center border border-black">Day | <u>Week</u> | Month</div>
+      <div id="Bottom-Filter" class="text-center border border-black py-2">Day | <u>Week</u> | Month</div>
 
       <div id="Bottom-Items" class="grid grid-rows-4 gap-2">
 
@@ -98,5 +101,7 @@
 
     </section>
   </div>
+
+  <script src="index.js"></script>
 </body>
 </html>

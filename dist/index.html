@@ -1,107 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="output.css">
-  <title>Docmument</title>
-</head>
-<body>
-  <div id="Container" class="mx-40">
-    <section id="Top Section" class="flex border border-black flex-col">
-      <div id="Text">
-        <div id="userLocation" class="text-center">Get Weather For Your Location Below</div>
-        <div class="flex justify-center align-middle">
-          <button id="share" onclick="myLocation()" class="bg-slate-200 rounded-md p-2 shadow-xl border-solid border-black text-center hover:bg-slate-300">Share Location</button>
-        </div>
-        <div class="text-center">17C</div>
-        <div class="text-center">Snow</div>
-        <div class="text-center">L: 7C | H: 19C</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <title>Docmument</title>
+  </head>
+  <body class="h-screen bg-gradient-to-r from-teal-200 to-cyan-300 pt-8">
+    <div class="flex justify-center align-middle py">
+      <input
+        type="text"
+        placeholder="Enter City Name"
+        class="border-solid bg-white border rounded-3xl px-6 py-3 shadow-xl"
+      />
+      
+    </div>
+    <div class="flex justify-center my-4">
+      <button
+          id="share"
+          onclick="myLocation()"
+          class="bg-emerald-500 rounded-3xl px-6 py-3 shadow-xl text-center hover:bg-emerald-600 text-white"
+        >
+          Use My Location
+        </button>
       </div>
-      <div id="Graph" class="border border-black text-center my-16">Graph Goes Here</div>
-    </section>
+    <div id="userLocation" class="text-center">
+      Get Weather For Your Location Below
+    </div>
 
-    <section id="Mid Section" class="border border-black my-4">
-
-      <div id="Mid Filter" class="text-center mr-10 align-middle py-2"><u>Hour</u> | 4 Hours | 8 Hours</div>
-
-      <div id="Mid Items" class="grid grid-cols-7">
-        <div class="border border-black">
-          <div class="text-center">Time</div>
-          <div class="text-center">Icon</div>
-          <div class="text-center">Temperature</div>
-        </div>
-        <div class="border border-black">
-          <div class="text-center">Time</div>
-          <div class="text-center">Icon</div>
-          <div class="text-center">Temperature</div>
-        </div>
-        <div class="border border-black">
-          <div class="text-center">Time</div>
-          <div class="text-center">Icon</div>
-          <div class="text-center">Temperature</div>
-        </div>
-        <div class="border border-black">
-          <div class="text-center">Time</div>
-          <div class="text-center">Icon</div>
-          <div class="text-center">Temperature</div>
-        </div>
-        <div class="border border-black">
-          <div class="text-center">Time</div>
-          <div class="text-center">Icon</div>
-          <div class="text-center">Temperature</div>
-        </div>
-        <div class="border border-black">
-          <div class="text-center">Time</div>
-          <div class="text-center">Icon</div>
-          <div class="text-center">Temperature</div>
-        </div>
-        <div class="border border-black">
-          <div class="text-center">Time</div>
-          <div class="text-center">Icon</div>
-          <div class="text-center">Temperature</div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section id="Bottom Section">
-
-      <div id="Bottom-Filter" class="text-center border border-black py-2">Day | <u>Week</u> | Month</div>
-
-      <div id="Bottom-Items" class="grid grid-rows-4 gap-2">
-
-        <div class="flex justify-between border border-black h-20">
-          <div>Week 1</div>
-          <div>Icon Week 1</div>
-          <div>Lowest Temp</div>
-          <div>Highest Temp</div>
-        </div>
-        <div class="flex justify-between border border-black">
-          <div>Week 1</div>
-          <div>Icon Week 1</div>
-          <div>Lowest Temp</div>
-          <div>Highest Temp</div>
-        </div>
-        <div class="flex justify-between border border-black">
-          <div>Week 1</div>
-          <div>Icon Week 1</div>
-          <div>Lowest Temp</div>
-          <div>Highest Temp</div>
-        </div>
-        <div class="flex justify-between border border-black">
-          <div>Week 1</div>
-          <div>Icon Week 1</div>
-          <div>Lowest Temp</div>
-          <div>Highest Temp</div>
-        </div>
-
-      </div>
-
-    </section>
-  </div>
-
-  <script src="index.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>

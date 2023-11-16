@@ -31,7 +31,7 @@ function getAPI(locationAPI)
         if(this.readyState == 4 && this.status == 200){
             const results = JSON.parse(this.responseText)
             console.log(results);
-            userLocation.innerHTML = results.locality;
+            userLocation.innerText = results.locality;
             currentUsersLocation = results.locality;
         }
     }

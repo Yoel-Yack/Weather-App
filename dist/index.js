@@ -43,4 +43,4 @@ function loadWeatherAPI(location) {
     });
 }
 
-loadWeatherAPI(Stockholm);
+loadWeatherAPI("Manchester");

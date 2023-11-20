@@ -21,20 +21,14 @@ function getLocationAPI(api) {
     );
 }
 
-function loadLoaction() {
-  let test = document.getElementsByName("input").value;
-  Node.addEvenListener("keyup", function (event) {
-    if (event.key === "Enter") {
-      loadWeatherAPI(test);
-    }
-  });
+function loadLocation() {
+  let test = document.getElementsByTagName("input").value;
+  loadWeatherAPI(test);
 }
 
 function loadWeatherAPI(location) {
   let link =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    location +
-    "&units=metric&daily&appid=1f4819738a1f7aaf2e1456e4866ae602";
+    `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&daily&appid=1f4819738a1f7aaf2e1456e4866ae602`;
 
   fetch(link)
     .then((res) => res.json())

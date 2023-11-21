@@ -11,14 +11,14 @@
       <div class="flex justify-center align-middle py">
         <div class="flex border-solid bg-white border rounded-3xl px-6 py-1 shadow-xl">
           <input name="cityInput" type="text" placeholder="Enter City Name"/>
-          <button onclick="loadLocation()" id="search-button" class="ml-auto p-2">
+          <button onclick="Location()" id="search-button" class="ml-auto p-2">
             <img src="../src/assets/search.svg" alt="search" class="w-6 h-6 self-center">
           </button>
         </div>
       </div>
 
       <div class="flex justify-center my-4">
-        <button id="share" onclick="positionTracker()"
+        <button id="share" onclick="deviceCurrentPosition();"
           class="bg-emerald-500 rounded-3xl px-6 py-3 shadow-xl text-center hover:bg-emerald-600 text-white">
           Use My Location
         </button>

@@ -1,27 +1,30 @@
-function positionTracker() {
-  if (navigator.geolocation) {
-    const currentPosition = navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const api = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
-        getLocationAPI(api);
-      },
-      (err) => alert(err.message)
-    );
-  } else {
-    alert("Geolocation is not supported in this browser");
-  }
+function deviceCurrentPosition() {
+  const currentPosition = navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const currentLocation = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
+      let data = currentLocationWeather(currentLocation);
+      return {
+        latitude: data.latitude,
+        longitude: data.longitude,
+        city: data.city,
+        locality: data.locality,
+        country: data.countryName
+      };
+    }
+  );
 }
 
-function getLocationAPI(api) {
-  fetch(api)
-    .then((res) => res.json())
-    .then(
-      (data) =>
-        (document.querySelector("#userLocation").innerHTML = data.locality)
-    );
+async function currentLocationWeather(currentLocation) {
+  const response = await fetch(currentLocation);
+  const json = await response.json();
+  console.log(json)
+  document.querySelector("#userLocation").innerHTML = json.locality;
+  return {
+
+  };
 }
 
-function loadLocation() {
+function Location() {
   let city = document.querySelector("input[name=cityInput]").value;
   loadWeatherAPI(city);
 }
@@ -32,7 +35,7 @@ async function loadWeatherAPI(location) {
   console.log(link);
   const response = await fetch(link);
   const json = await response.json();
-  console.log(json)
+  console.log(json);
 
   /* json.message.forEach(weatherCard => {
     const columnElement = document.createElement('div');
@@ -41,4 +44,6 @@ async function loadWeatherAPI(location) {
   */
 }
 
-positionTracker();
+
+let data = deviceCurrentPosition();
+console.log(data)

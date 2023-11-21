@@ -3,6 +3,8 @@ function deviceCurrentPosition() {
     (position) => {
       const currentLocation = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
       let data = currentLocationWeather(currentLocation);
+      // data logs as a promise
+      console.log(data)
       return {
         latitude: data.latitude,
         longitude: data.longitude,
@@ -32,9 +34,11 @@ function Location() {
 async function loadWeatherAPI(location) {
   let link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&daily&appid=1f4819738a1f7aaf2e1456e4866ae602`;
 
-  console.log(link);
+
   const response = await fetch(link);
   const json = await response.json();
+
+  // json logs as an object
   console.log(json);
 
   /* json.message.forEach(weatherCard => {
@@ -46,4 +50,4 @@ async function loadWeatherAPI(location) {
 
 
 let data = deviceCurrentPosition();
-console.log(data)
+

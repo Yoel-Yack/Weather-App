@@ -22,19 +22,23 @@ function getLocationAPI(api) {
 }
 
 function loadLocation() {
-  let test = document.getElementsByTagName("input").value;
-  loadWeatherAPI(test);
+  let city = document.querySelector("input[name=cityInput]").value;
+  loadWeatherAPI(city);
 }
 
-function loadWeatherAPI(location) {
-  let link =
-    `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&daily&appid=1f4819738a1f7aaf2e1456e4866ae602`;
+async function loadWeatherAPI(location) {
+  let link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&daily&appid=1f4819738a1f7aaf2e1456e4866ae602`;
 
-  fetch(link)
-    .then((res) => res.json())
-    .then((weather) => {
-      //Where you generate the data
-    });
+  console.log(link);
+  const response = await fetch(link);
+  const json = await response.json();
+  console.log(json)
+
+  /* json.message.forEach(weatherCard => {
+    const columnElement = document.createElement('div');
+    columnElement.classList.add('column');
+  }) 
+  */
 }
 
-loadWeatherAPI("Manchester");
+positionTracker();

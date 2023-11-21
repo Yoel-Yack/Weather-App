@@ -10,7 +10,7 @@
     <header>
       <div class="flex justify-center align-middle py">
         <div class="flex border-solid bg-white border rounded-3xl px-6 py-1 shadow-xl">
-          <input type="text" placeholder="Enter City Name"/>
+          <input name="cityInput" type="text" placeholder="Enter City Name"/>
           <button onclick="loadLocation()" id="search-button" class="ml-auto p-2">
             <img src="../src/assets/search.svg" alt="search" class="w-6 h-6 self-center">
           </button>
@@ -25,8 +25,10 @@
       </div>
 
       <div id="userLocation" class="text-center">
-        Get Weather For Your Location Below
+        
       </div>
+
+      <div id="currentWeather">test</div>
     </header>
 
     

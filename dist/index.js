@@ -1,29 +1,3 @@
-function time(ms){
-  return new Promise( (resolve, reject)=> {
-  try {
-    setTimeout(resolve, ms);
-  }
-  catch(err){
-    reject(console.log("error raised in time function"))
-  }
-  } )
-}
-
-
-async function Weather()
-{
-  try{
-    await time(500);
-    console.log("async function loaded");
-    await deviceCurrentPositionWeather();
-  }
-  catch (error) {
-    console.log("error in async function")
-  }
-  finally{}
-}
-
-
 async function deviceCurrentPositionWeather() {
   const currentPosition = navigator.geolocation.getCurrentPosition(
     async (position) => {
@@ -37,7 +11,7 @@ async function deviceCurrentPositionWeather() {
 }
 
 // gets the weather for the current users location and puts relevant info on left half of page
-Weather()
+deviceCurrentPositionWeather()
 
 // TBD will take location typed into the box and get the weather and display in right half of page
 

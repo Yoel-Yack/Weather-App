@@ -6,10 +6,14 @@
     <link rel="stylesheet" href="output.css" />
     <title>Docmument</title>
   </head>
-  <body class="h-screen bg-gradient-to-r from-teal-200 to-cyan-300 pt-8">
-    <header>
-      <div class="flex justify-center align-middle py">
-        <div class="flex border-solid bg-white border rounded-3xl px-6 py-1 shadow-xl">
+  <body class="h-screen bg-gradient-to-r from-teal-200 to-cyan-300 pt-3 grid grid-cols-2">
+      <div id="Left-CurrentLocationWeather" class="flex justify-center border-r-8">
+        <div id="userLocation" class="text-center"></div>
+        <div id="currentWeather"></div>
+      </div>
+      
+      <div id="Right-SearchCompareWeather" class="flex justify-center align-middle">
+        <div class="flex h-12 border-solid bg-white border rounded-3xl px-6 py-1 shadow-xl">
           <input name="cityInput" type="text" placeholder="Enter City Name"/>
           <button onclick="Location()" id="search-button" class="ml-auto p-2">
             <img src="../src/assets/search.svg" alt="search" class="w-6 h-6 self-center">
@@ -17,19 +21,6 @@
         </div>
       </div>
 
-      <div class="flex justify-center my-4">
-        <button id="share" onclick="deviceCurrentPosition();"
-          class="bg-emerald-500 rounded-3xl px-6 py-3 shadow-xl text-center hover:bg-emerald-600 text-white">
-          Use My Location
-        </button>
-      </div>
-
-      <div id="userLocation" class="text-center">
-        
-      </div>
-
-      <div id="currentWeather">test</div>
-    </header>
 
     
   

@@ -1,53 +1,44 @@
-function deviceCurrentPosition() {
+function time(ms){
+  return new Promise( (resolve, reject)=> {
+  try {
+    setTimeout(resolve, ms);
+  }
+  catch(err){
+    reject(console.log("error raised in time function"))
+  }
+  } )
+}
+
+
+async function Weather()
+{
+  try{
+    await time(500);
+    console.log("async function loaded");
+    await deviceCurrentPositionWeather();
+  }
+  catch (error) {
+    console.log("error in async function")
+  }
+  finally{}
+}
+
+
+async function deviceCurrentPositionWeather() {
   const currentPosition = navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const currentLocation = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
-      let data = currentLocationWeather(currentLocation);
-      // data logs as a promise
-      console.log(data)
-      return {
-        latitude: data.latitude,
-        longitude: data.longitude,
-        city: data.city,
-        locality: data.locality,
-        country: data.countryName
-      };
+    async (position) => {
+      let link = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&daily&appid=1f4819738a1f7aaf2e1456e4866ae602`;
+      const response = await fetch(link);
+      const json = await response.json();
+      console.log(json);
+      document.querySelector("#userLocation").innerHTML = json.name;
     }
   );
 }
 
-async function currentLocationWeather(currentLocation) {
-  const response = await fetch(currentLocation);
-  const json = await response.json();
-  console.log(json)
-  document.querySelector("#userLocation").innerHTML = json.locality;
-  return {
+// gets the weather for the current users location and puts relevant info on left half of page
+Weather()
 
-  };
-}
+// TBD will take location typed into the box and get the weather and display in right half of page
 
-function Location() {
-  let city = document.querySelector("input[name=cityInput]").value;
-  loadWeatherAPI(city);
-}
-
-async function loadWeatherAPI(location) {
-  let link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&daily&appid=1f4819738a1f7aaf2e1456e4866ae602`;
-
-
-  const response = await fetch(link);
-  const json = await response.json();
-
-  // json logs as an object
-  console.log(json);
-
-  /* json.message.forEach(weatherCard => {
-    const columnElement = document.createElement('div');
-    columnElement.classList.add('column');
-  }) 
-  */
-}
-
-
-let data = deviceCurrentPosition();
-
+// searchWeather()
